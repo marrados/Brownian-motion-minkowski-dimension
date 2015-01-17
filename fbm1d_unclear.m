@@ -13,8 +13,8 @@ clear all
 % http://www.maths.uq.edu.au/~kroese/ps/MCSpatial.pdf
 
 
-n=2^20;  % grid points
-H = 0.8; % Hurst parameter
+n=2^10;  % grid points
+H = 0.3; % Hurst parameter
 r=nan(n+1,1); r(1) = 1;
 for k=1:n
     r(k+1) = 0.5*((k+1)^(2*H) - 2*k^(2*H) + (k-1)^(2*H));
