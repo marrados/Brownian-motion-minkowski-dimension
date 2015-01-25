@@ -4,7 +4,7 @@
 n = 100;
 T = 1;
 t = T/n:T/(n + 1):T;
-H = 0.1;
+H = 0.75;
 %variance-covariance matrix
 gamma = zeros(n,n);
 for j=1:n

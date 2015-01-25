@@ -14,7 +14,8 @@ clear all
 
 
 n=2^10;  % grid points
-H = 0.3; % Hurst parameter
+H = 0.75; % Hurst parameter
+
 r=nan(n+1,1); r(1) = 1;
 for k=1:n
     r(k+1) = 0.5*((k+1)^(2*H) - 2*k^(2*H) + (k-1)^(2*H));
@@ -25,3 +26,4 @@ W=fft(sqrt(lambda).*complex(randn(2*n,1),randn(2*n,1)));
 W = n^(-H)*cumsum(real(W(1:n+1))); % rescale
 plot((0:n)/n,W);
 
+dim = 2 - H
