@@ -1,11 +1,8 @@
-%http://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution
+function [X,t] = fractional_brownian_motion_faster ( m, n, H, T )
+%http://en.wikipedia.org/wiki/Fractional_Brownian_motion
 %http://www2.isye.gatech.edu/~adieker3/fbm/thesisold.pdf
 %parameters
-n = 100;
-m = 3;
-T = 1;
 t = T/n:T/(n + 1):T;
-H = 0.8;
 %variance-covariance matrix
 gamma = zeros(n,n);
 for j=1:n
@@ -15,19 +12,9 @@ for j=1:n
 end
 %cholesky decomposition
 %L - standard deviation matrix
-[L,U] = Cholesky(gamma);
+L = chol(gamma, 'lower');
 %n values of standard Gaussian distribution
 P = normrnd(0,1,n,m);
 %quite randomly, from the second link
 L1 = L * P;
-%X = cumsum ( L1(1:n,1:m), 2 );
-X = zeros(n,m);
-for l=1:m
-    for j=1:n
-        for k = 1:n
-            X(j,l) = X(j,l) + L(j,k) * P(k,l); 
-        end
-    end
-end
-plot(t,X);
-brownian_motion_display(m,n,X');
+X = cumsum ( L1(1:n,1:m), 2 );
