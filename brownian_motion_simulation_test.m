@@ -18,15 +18,6 @@ function brownian_motion_simulation_test ( )
 %  Estimate the average displacement of the particle from the origin
 %  as a function of time.
 %
-  for m = 1 : 3
-    k = 40;
-    n = 1001;
-    d = 10.0;
-    t = 1.0;
-
-    dsq = brownian_displacement_simulation ( k, n, m, d, t );
-    brownian_displacement_display ( k, n, m, d, t, dsq );
-  end
 %
 %  Terminate.
 %
@@ -34,7 +25,6 @@ function brownian_motion_simulation_test ( )
   fprintf ( 1, 'BROWNIAN_MOTION_SIMULATION_TEST\n' );
   fprintf ( 1, '  Normal end of execution.\n' );
   fprintf ( 1, '\n' );
-  timestamp ( );
 
   return
 end
