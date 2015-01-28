@@ -1,7 +1,7 @@
-function [X,t] = fractional_brownian_motion_faster ( m, n, H, T )
+function [X,t] = fbm_Cholesky_handmade ( m, n, H, T )
 %http://en.wikipedia.org/wiki/Fractional_Brownian_motion
 %http://www2.isye.gatech.edu/~adieker3/fbm/thesisold.pdf
-%parameters
+%Cholesky method
 t = T/n:T/(n + 1):T;
 %variance-covariance matrix
 gamma = zeros(n,n);
@@ -12,9 +12,15 @@ for j=1:n
 end
 %cholesky decomposition
 %L - standard deviation matrix
-L = chol(gamma, 'lower');
+[L] = Cholesky(gamma);
 %n values of standard Gaussian distribution
 P = normrnd(0,1,n,m);
 %quite randomly, from the second link
-L1 = L * P;
-X = cumsum ( L1(1:n,1:m), 2 );
+X = zeros(n,m);
+for l=1:m
+    for j=1:n
+        for k = 1:n
+            X(j,l) = X(j,l) + L(j,k) * P(k,l); 
+        end
+    end
+end
