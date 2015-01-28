@@ -1,22 +1,5 @@
 function brownian_motion_simulation_test ( )
 
-%*****************************************************************************80
-%
-%% BROWNIAN_MOTION_SIMULATION_TEST tests the BROWNIAN_MOTION_SIMULATION library.
-%
-%  Licensing:
-%
-%    This code is distributed under the GNU LGPL license.
-%
-%  Modified:
-%
-%    30 September 2012
-%
-%  Author:
-%
-%    John Burkardt
-%
-  %timestamp ( );
   fprintf ( 1, '\n' );
   fprintf ( 1, 'BROWNIAN_MOTION_SIMULATION_TEST\n' );
   fprintf ( 1, '  MATLAB version\n' );
