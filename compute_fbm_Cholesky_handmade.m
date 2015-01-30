@@ -10,7 +10,7 @@ if exitflag ~= 0
     display(maxit);
 end
 
-if m < 3
+if m < 4
     brownian_motion_display(m, n, X');
 end
 
