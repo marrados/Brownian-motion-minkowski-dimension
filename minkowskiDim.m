@@ -1,10 +1,13 @@
-function [ dim, exitflag, maxIt ] = minkowskiDim( X, it, p )
+function [ dim, exitflag, maxIt ] = minkowskiDim( X, it, p, show_dim )
 %Count Minkowski dimension of m-dimension Brownian motion
 %Parameters:
 %   X - matrix with points of Brownian motion positions
 %   it - max number of iterations
 %   p - number of middle-points between points
 
+if nargin < 4
+    show_dim = 0;
+end
 
 exitflag = 0;
 maxIt = 0;
@@ -21,9 +24,11 @@ for i = 1 : it
     eps(i) = box;
     box = box / 2;
     
-    dim = leastSquares(-log10(eps(1:i)), log10(Neps(1:i)));
-    display(i);
-    display(dim);
+    if show_dim == 1
+        dim = leastSquares(-log10(eps(1:i)), log10(Neps(1:i)));
+        display(i);
+        display(dim);
+    end
     
     if i > 1 && Neps(i-1) == Neps(i)
         exitflag = -1;

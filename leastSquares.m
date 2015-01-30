@@ -9,11 +9,12 @@ Sxy = sum(x*y');
 
 a = (Sx*Sy - Sxy*n) / (Sx^2 - Sxx*n);
 b = (Sx*Sxy - Sxx*Sy) / (Sx*Sx - Sxx*n);
-clf
+
 hold on
 plot(x, y, 'b*');
 plot(x, a*x+b, 'r');
 hold off
+figure;
 
 end
 

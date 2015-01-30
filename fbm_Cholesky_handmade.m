@@ -24,3 +24,6 @@ for l=1:m
         end
     end
 end
+
+display('Compute points ended...');
+end

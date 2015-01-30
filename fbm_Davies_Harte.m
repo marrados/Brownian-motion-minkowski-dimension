@@ -14,6 +14,5 @@ lambda=real(fft(r))/(2*n); % eigenvalues
 W=fft(repmat(sqrt(lambda),1,m).*complex(randn(2*n,m),randn(2*n,m)));
 X = n^(-H)*cumsum(real(W(1:n,1:m))); % rescale
 
-
+display('Compute points ended...');
 end
-
