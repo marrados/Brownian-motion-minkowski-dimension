@@ -1,4 +1,4 @@
-function [  ] = compute_fbm_Cholesky_handmade( m, n, H, T, it, p)
+function [ dim ] = compute_fbm_Cholesky_handmade( m, n, H, T, it, p)
 
 [X, t] = fbm_Cholesky_handmade(m, n, H, T);
 
