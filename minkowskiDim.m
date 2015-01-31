@@ -15,14 +15,15 @@ maxIt = 0;
 minB = min(X);
 X = X + ones(size(X))*diag(abs(minB));
 
-box = max(X(:)) - 1;
+box = max(X(:));
 
 Neps = zeros(1, it);
 eps = zeros(1, it);
 for i = 1 : it
+    box = box / 2;
     Neps(i) = boxcount(X, box, p);
     eps(i) = box;
-    box = box / 2;
+
     
     if show_dim == 1
         dim = leastSquares(-log10(eps(1:i)), log10(Neps(1:i)));
